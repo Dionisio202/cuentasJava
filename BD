@@ -1,0 +1,18 @@
+create table usuario(
+cedula varchar(10) primary key,
+nombre varchar(25) not null,
+apellido varchar(25) not null   
+);
+create TABLE cuenta (
+cuenta varchar(3) primary key,
+ saldo decimal not null ,
+ cedula varchar(10) not null,
+  foreign key(cedula) REFERENCES usuario(cedula)
+);
+create TABLE transaccion(
+id_tran int PRIMARY KEY AUTO_INCREMENT,
+tipo varchar(20) not null,
+monto decimal not null,
+cuenta varchar(3) not null,
+FOREIGN key(cuenta) REFERENCES cuenta(cuenta)
+);
